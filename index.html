@@ -80,7 +80,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--gray-900);
 .code-block pre{font-family:'Fira Code',monospace;font-size:0.8rem;line-height:1.7;color:#cdd6f4;white-space:pre;}
 .kw{color:#cba6f7;}.fn{color:#89b4fa;}.st{color:#a6e3a1;}.cm{color:#6c7086;font-style:italic;}.nm{color:#fab387;}.op{color:#89dceb;}
 .ai-section{margin-top:20px;background:linear-gradient(135deg,#f0fdf4,#e0f2fe);border:2px solid var(--green);border-radius:14px;padding:20px;}
-.ai-section-title{font-size:0.85rem;font-weight:800;color:var(--green-dark);margin-bottom:12px;}
+
 .ai-search-wrap{display:flex;gap:10px;}
 .ai-input{flex:1;padding:10px 16px;border:2px solid var(--green);border-radius:10px;font-family:'Nunito',sans-serif;font-size:0.88rem;outline:none;color:var(--gray-700);background:white;}
 .ai-input:focus{border-color:var(--blue-dark);}
@@ -233,10 +233,10 @@ function render(){
     const nc=e.lang==='py'?'py':'cpp';
     const tags=e.tags.map(t=>`<span class="tag ${tagMap[t]||''}">${t}</span>`).join('');
     const aiH=e.ai?`<div class="ai-section">
-      <div class="ai-section-title">🤖 Assistant IA — Questions sur la classe PWF</div>
+     
       <div class="ai-search-wrap">
         <input class="ai-input" id="ai_${e.id}" type="text" placeholder="Pose une question sur PWF, integrate, double_y..." onkeydown="if(event.key==='Enter')askAI(${e.id})">
-        <button class="ai-btn" id="aib_${e.id}" onclick="askAI(${e.id})">Demander 🤖</button>
+        <button class="ai-btn" id="aib_${e.id}" onclick="askAI(${e.id})">Demander </button>
       </div>
       <div class="ai-loading" id="ail_${e.id}">Gemini réfléchit...</div>
       <div class="ai-response" id="air_${e.id}"></div>
