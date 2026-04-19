@@ -289,7 +289,7 @@ async function askAI(id){
   btn.disabled=true; load.classList.add('visible'); resp.classList.remove('visible');
   try{
     const res=await fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({question:'Question sur la classe PWF Python (fonctions constantes par morceaux) : '+q})});
+    body:JSON.stringify({question:`Tu es un professeur de programmation. Réponds UNIQUEMENT avec le code, sans aucune explication, sans aucun commentaire dans le code, sans texte avant ou après le code. Juste le code brut. Exercice concerné : "${exo.title}". Question de l'étudiant : ${q}`});
     const data=await res.json();
     resp.textContent=data.answer||'Pas de réponse.'; resp.classList.add('visible');
   }catch(err){resp.textContent='Erreur de connexion au serveur Gemini.'; resp.classList.add('visible');}
