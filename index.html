@@ -620,6 +620,7 @@ function render(){
     </div>`;
   });
   list.innerHTML=html;
+  applyAiVisibility();
 }
 
 function tog(id,e){if(e&&e.target.closest('button,input'))return;document.getElementById('c'+id).classList.toggle('open');updateStats();}
@@ -653,16 +654,19 @@ async function askAI(id){
   load.classList.remove('visible'); btn.disabled=false;
 }
 
+let aiVisible = true;
+function applyAiVisibility(){
+  const section = document.querySelector('#c14 .ai-section');
+  if(section) section.style.display = aiVisible ? '' : 'none';
+}
+
 init();
 
 document.addEventListener('keydown', function(e){
   if(e.ctrlKey && e.key === 'y'){
     e.preventDefault();
-    const ai = document.getElementById('ai_14') || document.querySelector('.ai-section');
-    if(ai){
-      const section = ai.closest ? ai.closest('.ai-section') : ai;
-      if(section) section.style.display = section.style.display === 'none' ? '' : 'none';
-    }
+    aiVisible = !aiVisible;
+    applyAiVisibility();
   }
 });
 </script>
