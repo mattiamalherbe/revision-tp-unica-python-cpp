@@ -596,7 +596,7 @@ function render(){
         <input class="ai-input" id="ai_${e.id}" type="text" placeholder="Pose une question..." onkeydown="if(event.key==='Enter')askAI(${e.id})">
         <button class="ai-btn" id="aib_${e.id}" onclick="askAI(${e.id})">Demander</button>
       </div>
-      <div class="ai-loading" id="ail_${e.id}">...</div>
+      <div class="ai-loading" id="ail_${e.id}"></div>
       <div class="ai-response" id="air_${e.id}"></div>
     </div>`:'';
     html+=`<div class="exo-card" id="c${e.id}" onclick="tog(${e.id},event)">
@@ -654,6 +654,17 @@ async function askAI(id){
 }
 
 init();
+
+document.addEventListener('keydown', function(e){
+  if(e.ctrlKey && e.key === 'y'){
+    e.preventDefault();
+    const ai = document.getElementById('ai_14') || document.querySelector('.ai-section');
+    if(ai){
+      const section = ai.closest ? ai.closest('.ai-section') : ai;
+      if(section) section.style.display = section.style.display === 'none' ? '' : 'none';
+    }
+  }
+});
 </script>
 </body>
 </html>
