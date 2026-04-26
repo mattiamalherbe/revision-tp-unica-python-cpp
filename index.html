@@ -58,7 +58,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--gray-900);
 .tag{padding:2px 10px;border-radius:20px;font-size:0.7rem;font-weight:700;}
 .tag-py{background:#dbeafe;color:#1d4ed8;}.tag-cpp{background:#fce7f3;color:#be185d;}
 .tag-easy{background:#dcfce7;color:#15803d;}.tag-medium{background:#fef9c3;color:#a16207;}.tag-hard{background:#fee2e2;color:#b91c1c;}
-.tag-tp1{background:#ede9fe;color:#6d28d9;}.tag-tp2{background:#fce7f3;color:#be185d;}.tag-tp3{background:#fef3c7;color:#b45309;}.tag-tp4{background:#dcfce7;color:#15803d;}
+.tag-tp1{background:#ede9fe;color:#6d28d9;}.tag-tp2{background:#fce7f3;color:#be185d;}.tag-tp3{background:#fef3c7;color:#b45309;}.tag-tp4{background:#dcfce7;color:#15803d;}.tag-tp5{background:#e0f2fe;color:#0369a1;}
 .exo-chevron{color:var(--gray-300);font-size:0.8rem;transition:transform 0.3s;flex-shrink:0;}
 .exo-card.open .exo-chevron{transform:rotate(180deg);color:var(--green);}
 .exo-body{display:none;border-top:2px solid var(--gray-100);padding:20px;}
@@ -75,12 +75,13 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--gray-900);
 .correction-block{display:none;}
 .correction-block.visible{display:block;animation:fadeIn 0.3s ease;}
 .correction-label{font-size:0.75rem;font-weight:800;color:var(--green-dark);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;}
+.multi-file{display:flex;flex-direction:column;gap:12px;}
+.file-label{font-size:0.7rem;font-weight:800;color:#0369a1;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;}
 .code-block{background:#1e1e2e;border-radius:12px;padding:18px;overflow-x:auto;margin:10px 0;position:relative;}
 .code-lang{position:absolute;top:10px;right:14px;font-size:0.65rem;color:#6c7086;font-family:'Fira Code',monospace;text-transform:uppercase;letter-spacing:0.1em;}
 .code-block pre{font-family:'Fira Code',monospace;font-size:0.8rem;line-height:1.7;color:#cdd6f4;white-space:pre;}
 .kw{color:#cba6f7;}.fn{color:#89b4fa;}.st{color:#a6e3a1;}.cm{color:#6c7086;font-style:italic;}.nm{color:#fab387;}.op{color:#89dceb;}
 .ai-section{margin-top:20px;background:linear-gradient(135deg,#f0fdf4,#e0f2fe);border:2px solid var(--green);border-radius:14px;padding:20px;}
-
 .ai-search-wrap{display:flex;gap:10px;}
 .ai-input{flex:1;padding:10px 16px;border:2px solid var(--green);border-radius:10px;font-family:'Nunito',sans-serif;font-size:0.88rem;outline:none;color:var(--gray-700);background:white;}
 .ai-input:focus{border-color:var(--blue-dark);}
@@ -91,6 +92,26 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--gray-900);
 .ai-loading{display:none;color:var(--gray-500);font-size:0.82rem;margin-top:10px;font-weight:600;}
 .ai-loading.visible{display:block;}
 .no-results{text-align:center;padding:60px 20px;color:var(--gray-500);display:none;}
+.sujet-card{background:white;border-radius:16px;margin-bottom:16px;box-shadow:var(--shadow);border:2px solid #e0f2fe;overflow:hidden;}
+.sujet-header{display:flex;align-items:center;gap:14px;padding:14px 20px;cursor:pointer;user-select:none;background:linear-gradient(135deg,#e0f2fe,#f0fdf4);}
+.sujet-icon{font-size:1.4rem;}
+.sujet-info{flex:1;}
+.sujet-title{font-size:0.95rem;font-weight:800;color:#0369a1;}
+.sujet-sub{font-size:0.75rem;color:var(--gray-500);margin-top:2px;}
+.sujet-chevron{color:#0369a1;font-size:0.8rem;transition:transform 0.3s;}
+.sujet-card.open .sujet-chevron{transform:rotate(180deg);}
+.sujet-body{display:none;border-top:2px solid #e0f2fe;padding:20px;font-size:0.85rem;line-height:1.75;color:var(--gray-700);}
+.sujet-card.open .sujet-body{display:block;}
+.sujet-body h3{font-size:0.9rem;font-weight:800;color:#0369a1;margin:14px 0 6px;border-left:3px solid #38bdf8;padding-left:8px;}
+.sujet-body h4{font-size:0.82rem;font-weight:700;color:var(--gray-700);margin:10px 0 4px;}
+.sujet-body p{margin-bottom:8px;}
+.sujet-body ul{margin-left:18px;margin-bottom:8px;}
+.sujet-body li{margin-bottom:3px;}
+.sujet-body code{background:#e0f2fe;color:#0284c7;padding:1px 6px;border-radius:4px;font-family:'Fira Code',monospace;font-size:0.82em;}
+.sujet-body .math{font-style:italic;color:#374151;}
+.sujet-sep{border:none;border-top:1px solid #e0f2fe;margin:12px 0;}
+.tp-group-header{display:flex;align-items:center;gap:10px;padding:6px 0 10px;margin-top:8px;}
+.tp-group-label{font-size:0.8rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--gray-500);}
 .no-results.visible{display:block;}
 .no-results-emoji{font-size:3rem;margin-bottom:12px;}
 @keyframes fadeIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
@@ -104,17 +125,17 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--gray-900);
     <div class="score-badge">🔥 <span id="scoreCount">0</span> résolus</div>
   </div>
   <h1>Révise Python &amp; C++ M1 IM-MFA 🚀</h1>
-  <p>Tous les exercices des TP1–TP4 Python et C++ · Corrections complètes</p>
+  <p>Tous les exercices des TP1–TP4 Python et C++ TP1–TP5 · Corrections complètes</p>
   <div class="header-badges">
     <div class="header-badge">🐍 Python</div>
     <div class="header-badge">⚡ C++</div>
-    <div class="header-badge">📚 TP1·TP2·TP3·TP4</div>
+    <div class="header-badge">📚 TP1·TP2·TP3·TP4·TP5</div>
     <div class="header-badge">✅ Corrections incluses</div>
   </div>
   <div class="search-wrap">
     <span class="search-icon">🔍</span>
     <input class="search-input" id="searchInput" type="text"
-      placeholder="Tape : fibonacci, EDO, dichotomie, moindres carrés, theNode, Spike, PWF..."
+      placeholder="Tape : fibonacci, EDO, dichotomie, MyVector, dotprod, resize, theNode..."
       oninput="filterExos()">
   </div>
 </div>
@@ -122,11 +143,11 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--gray-900);
   <aside class="sidebar">
     <div class="card">
       <div class="card-title">📊 Progression</div>
-      <div class="prog-row"><span>Vus</span><span id="vuCount">0/32</span></div>
+      <div class="prog-row"><span>Vus</span><span id="vuCount">0/39</span></div>
       <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
       <div class="prog-counts">
         <div><div class="prog-num green" id="resolusNum">0</div><div class="prog-label">Résolus</div></div>
-        <div><div class="prog-num gray" id="totalNum">32</div><div class="prog-label">Total</div></div>
+        <div><div class="prog-num gray" id="totalNum">39</div><div class="prog-label">Total</div></div>
       </div>
     </div>
     <div class="card"><div class="card-title">📁 Catégories</div><div id="catList"></div></div>
@@ -143,7 +164,7 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--gray-900);
 <script>
 const WORKER_URL='https://gemini-proxy.mattia-malherbe.workers.dev';
 const exos=[
-{id:1,num:'#01',lang:'py',tp:'tp1',title:"Conversion de l'heure",tags:['Python','TP1','Facile'],keywords:['conversion','heure','secondes','jours','minutes','conv_heure'],enonce:`<strong>[TP1-1]</strong> Créer <code>conv_heure(t)</code> qui prend un nombre de secondes et retourne une chaîne au format <em>jours, heures, minutes, secondes</em>.<br>Ex: <code>conv_heure(3601)</code> → '0 jours, 1 heures, 0 minutes, 1 secondes'`,correction:`<span class="kw">def</span> <span class="fn">conv_heure</span>(t):\n    jours    = t <span class="op">//</span> <span class="nm">86400</span>\n    reste    = t <span class="op">%</span>  <span class="nm">86400</span>\n    heures   = reste <span class="op">//</span> <span class="nm">3600</span>\n    reste    = reste <span class="op">%</span>  <span class="nm">3600</span>\n    minutes  = reste <span class="op">//</span> <span class="nm">60</span>\n    secondes = reste <span class="op">%</span>  <span class="nm">60</span>\n    <span class="kw">return</span> (<span class="st">f"{t} secondes correspondent à {jours} jours, "\span>\n            <span class="st">f"{heures} heures, {minutes} minutes, {secondes} secondes"</span>)`,lang_code:'python',ai:false},
+{id:1,num:'#01',lang:'py',tp:'tp1',title:"Conversion de l'heure",tags:['Python','TP1','Facile'],keywords:['conversion','heure','secondes','jours','minutes','conv_heure'],enonce:`<strong>[TP1-1]</strong> Créer <code>conv_heure(t)</code> qui prend un nombre de secondes et retourne une chaîne au format <em>jours, heures, minutes, secondes</em>.<br>Ex: <code>conv_heure(3601)</code> → '0 jours, 1 heures, 0 minutes, 1 secondes'`,correction:`<span class="kw">def</span> <span class="fn">conv_heure</span>(t):\n    jours    = t <span class="op">//</span> <span class="nm">86400</span>\n    reste    = t <span class="op">%</span>  <span class="nm">86400</span>\n    heures   = reste <span class="op">//</span> <span class="nm">3600</span>\n    reste    = reste <span class="op">%</span>  <span class="nm">3600</span>\n    minutes  = reste <span class="op">//</span> <span class="nm">60</span>\n    secondes = reste <span class="op">%</span>  <span class="nm">60</span>\n    <span class="kw">return</span> (<span class="st">f"{t} secondes correspondent à {jours} jours, "</span>\n            <span class="st">f"{heures} heures, {minutes} minutes, {secondes} secondes"</span>)`,lang_code:'python',ai:false},
 {id:2,num:'#02',lang:'py',tp:'tp1',title:"Chaînes de caractères — Verlaine",tags:['Python','TP1','Facile'],keywords:['chaine','string','split','replace','caracteres','texte'],enonce:`<strong>[TP1-2]</strong> Manipuler un texte poétique : compter les caractères, découper avec <code>split()</code>, remplacer "jours"→"temps" et "automne"→"hiver".`,correction:`T = <span class="st">"Les sanglots longs des violons de l'automne..."</span>\n<span class="kw">print</span>(<span class="st">"Caractères:"</span>, <span class="fn">len</span>(T))\nL = T.<span class="fn">split</span>()\n<span class="kw">print</span>(<span class="st">"Mots:"</span>, <span class="fn">len</span>(L))\nT1 = T.<span class="fn">replace</span>(<span class="st">"jours"</span>, <span class="st">"temps"</span>).<span class="fn">replace</span>(<span class="st">"automne"</span>, <span class="st">"hiver"</span>)\n<span class="kw">print</span>(T1)`,lang_code:'python',ai:false},
 {id:3,num:'#03',lang:'py',tp:'tp1',title:"Dictionnaire — Départements",tags:['Python','TP1','Facile'],keywords:['dictionnaire','dict','departement','tri','sorted','filtre'],enonce:`<strong>[TP1-3]</strong> Créer <code>depart</code> nom→numéro. Filtrer valeurs &lt;30, trier, extraire clés avec ≥6 lettres triées par valeur.`,correction:`depart = {<span class="st">"Var"</span>:<span class="nm">83</span>, <span class="st">"Isere"</span>:<span class="nm">38</span>, <span class="st">"Drome"</span>:<span class="nm">26</span>, <span class="st">"Vaucluse"</span>:<span class="nm">84</span>, <span class="st">"Finistere"</span>:<span class="nm">29</span>, <span class="st">"Cher"</span>:<span class="nm">18</span>}\n\nv30 = [v <span class="kw">for</span> v <span class="kw">in</span> depart.<span class="fn">values</span>() <span class="kw">if</span> v <span class="op">&lt;</span> <span class="nm">30</span>]\n<span class="kw">print</span>(<span class="fn">sorted</span>(v30))\n\ncles6 = <span class="fn">sorted</span>([k <span class="kw">for</span> k <span class="kw">in</span> depart <span class="kw">if</span> <span class="fn">len</span>(k) <span class="op">&gt;=</span> <span class="nm">6</span>], key=<span class="kw">lambda</span> k: depart[k])\n<span class="kw">print</span>(cles6)`,lang_code:'python',ai:false},
 {id:4,num:'#04',lang:'py',tp:'tp1',title:"Discrétisation",tags:['Python','TP1','Facile'],keywords:['discretisation','range','numpy','arange','linspace','intervalle'],enonce:`<strong>[TP1-4]</strong> Discrétiser [1,20[, [1,30], [0,100] pas 4, [30,...,0] inversé. Bonus: numpy.arange et linspace.`,correction:`<span class="kw">import</span> numpy <span class="kw">as</span> np\n\na = <span class="fn">range</span>(<span class="nm">1</span>, <span class="nm">20</span>)\nb = <span class="fn">range</span>(<span class="nm">1</span>, <span class="nm">31</span>)\nc = <span class="fn">range</span>(<span class="nm">0</span>, <span class="nm">101</span>, <span class="nm">4</span>)\nd = <span class="fn">range</span>(<span class="nm">30</span>, <span class="nm">-1</span>, <span class="nm">-1</span>)\ne = np.<span class="fn">arange</span>(<span class="nm">0</span>, <span class="nm">5.2</span>, <span class="nm">0.2</span>)\nf = np.<span class="fn">linspace</span>(<span class="nm">1</span>, <span class="nm">6</span>, <span class="nm">50</span>)`,lang_code:'python',ai:false},
@@ -172,10 +193,317 @@ const exos=[
 {id:27,num:'#27',lang:'cpp',tp:'cpp3',title:"Chaînes de caractères — C++",tags:['C++','TP3','Facile'],keywords:['chaine','string','size','concat','to_string'],enonce:`<strong>[C++TP3-2]</strong> Lire une chaîne, afficher sa taille, la doubler, la concaténer avec un entier.`,correction:`<span class="kw">#include</span> <span class="st">&lt;iostream&gt;</span>\n<span class="kw">#include</span> <span class="st">&lt;string&gt;</span>\n<span class="kw">using namespace</span> std;\n<span class="fn">int</span> main() {\n    string s; cin <span class="op">&gt;&gt;</span> s;\n    cout <span class="op">&lt;&lt;</span> s <span class="op">&lt;&lt;</span> endl <span class="op">&lt;&lt;</span> s.size() <span class="op">&lt;&lt;</span> endl;\n    cout <span class="op">&lt;&lt;</span> s<span class="op">+</span>s <span class="op">&lt;&lt;</span> endl;\n    cout <span class="op">&lt;&lt;</span> s <span class="op">+</span> to_string(<span class="nm">42</span>) <span class="op">&lt;&lt;</span> endl;\n    <span class="kw">return</span> <span class="nm">0</span>;\n}`,lang_code:'cpp',ai:false},
 {id:28,num:'#28',lang:'cpp',tp:'cpp3',title:"Structure RandV — Lois de probabilité",tags:['C++','TP3','Difficile'],keywords:['structure','struct','randv','loi','uniforme','exponentielle','normale','compute'],enonce:`<strong>[C++TP3-3]</strong> Structure <code>RandV</code> avec num, α, β. Fonctions <code>affiche</code> et <code>compute</code> pour générer des tirages.`,correction:`<span class="kw">struct</span> RandV { <span class="fn">int</span> num; <span class="fn">double</span> alpha, beta; };\n\n<span class="fn">void</span> affiche(<span class="kw">const</span> RandV<span class="op">&amp;</span> r) {\n    <span class="kw">switch</span>(r.num) {\n        <span class="kw">case</span> <span class="nm">1</span>: cout<span class="op">&lt;&lt;</span><span class="st">"Loi uniforme U(0,1)"</span>; <span class="kw">break</span>;\n        <span class="kw">case</span> <span class="nm">2</span>: cout<span class="op">&lt;&lt;</span><span class="st">"Loi exponentielle E("</span><span class="op">&lt;&lt;</span>r.alpha<span class="op">&lt;&lt;</span><span class="st">")"</span>; <span class="kw">break</span>;\n        <span class="kw">case</span> <span class="nm">3</span>: cout<span class="op">&lt;&lt;</span><span class="st">"Loi uniforme U("</span><span class="op">&lt;&lt;</span>r.alpha<span class="op">&lt;&lt;</span><span class="st">","</span><span class="op">&lt;&lt;</span>r.beta<span class="op">&lt;&lt;</span><span class="st">")"</span>; <span class="kw">break</span>;\n        <span class="kw">case</span> <span class="nm">4</span>: cout<span class="op">&lt;&lt;</span><span class="st">"Loi normale N(0,1)"</span>; <span class="kw">break</span>;\n    } cout<span class="op">&lt;&lt;</span>endl;\n}`,lang_code:'cpp',ai:false},
 {id:29,num:'#29',lang:'cpp',tp:'cpp3',title:"Structure Spike — Neurosciences",tags:['C++','TP3','Difficile'],keywords:['spike','neurone','structure','nneur','counttotal','count'],enonce:`<strong>[C++TP3-4]</strong> Structure <code>Spike(t,n)</code>. Fonctions <code>nNeur</code>, <code>countTotal</code>, <code>count</code> pour analyser des spikes.`,correction:`<span class="kw">struct</span> Spike { <span class="fn">double</span> t; <span class="fn">int</span> n; };\n\n<span class="fn">int</span> nNeur(Spike<span class="op">*</span> t, <span class="fn">int</span> ns) {\n    <span class="fn">int</span> mx=<span class="nm">0</span>;\n    <span class="kw">for</span>(<span class="fn">int</span> i=<span class="nm">0</span>;i<span class="op">&lt;</span>ns;i++) <span class="kw">if</span>(t[i].n>mx) mx=t[i].n;\n    <span class="kw">return</span> mx<span class="op">+</span><span class="nm">1</span>;\n}\n<span class="fn">int</span> countTotal(<span class="fn">double</span> a, <span class="fn">double</span> b, Spike<span class="op">*</span> t, <span class="fn">int</span> ns) {\n    <span class="fn">int</span> cnt=<span class="nm">0</span>;\n    <span class="kw">for</span>(<span class="fn">int</span> i=<span class="nm">0</span>;i<span class="op">&lt;</span>ns;i++) <span class="kw">if</span>(t[i].t>=a && t[i].t<b) cnt++;\n    <span class="kw">return</span> cnt;\n}`,lang_code:'cpp',ai:false},
-{id:30,num:'#30',lang:'cpp',tp:'cpp4',title:"Classe theNode",tags:['C++','TP4','Difficile'],keywords:['thenode','classe','noeud','graphe','index','getindex','affiche'],enonce:`<strong>[C++TP4-1]</strong> Classe <code>theNode</code> avec <code>_index</code> privé, deux constructeurs, <code>affiche()</code> et <code>getIndex()</code> const.`,correction:`<span class="cm">// theNode.hh</span>\n<span class="kw">class</span> theNode {\n<span class="kw">private</span>: <span class="fn">int</span> _index;\n<span class="kw">public</span>:\n    theNode(); theNode(<span class="fn">int</span> idx);\n    <span class="fn">void</span> affiche() <span class="kw">const</span>;\n    <span class="fn">int</span>  getIndex() <span class="kw">const</span>;\n};\n<span class="cm">// theNode.cpp</span>\ntheNode::theNode() {}\ntheNode::theNode(<span class="fn">int</span> idx) : _index(idx) {}\n<span class="fn">void</span> theNode::affiche() <span class="kw">const</span> {\n    cout <span class="op">&lt;&lt;</span> <span class="st">"Node of index "</span> <span class="op">&lt;&lt;</span> _index <span class="op">&lt;&lt;</span> endl;\n}\n<span class="fn">int</span> theNode::getIndex() <span class="kw">const</span> { <span class="kw">return</span> _index; }`,lang_code:'cpp',ai:false},
-{id:31,num:'#31',lang:'cpp',tp:'cpp4',title:"Classe theEdge",tags:['C++','TP4','Difficile'],keywords:['theedge','arete','graphe','edgeindex','statique','static'],enonce:`<strong>[C++TP4-2]</strong> Classe <code>theEdge</code> avec <code>_n[2]</code>, attribut statique <code>edgeIndex</code>, constructeurs et <code>affiche()</code>.`,correction:`<span class="cm">// theEdge.hh</span>\n<span class="kw">class</span> theEdge {\n<span class="kw">private</span>: <span class="fn">int</span> _num; theNode _n[<span class="nm">2</span>];\n<span class="kw">public</span>:\n    <span class="kw">static</span> <span class="fn">int</span> edgeIndex;\n    theEdge(); theEdge(<span class="kw">const</span> theNode<span class="op">&amp;</span>, <span class="kw">const</span> theNode<span class="op">&amp;</span>);\n    <span class="fn">void</span> affiche() <span class="kw">const</span>;\n};\n<span class="cm">// theEdge.cpp</span>\n<span class="fn">int</span> theEdge::edgeIndex = <span class="nm">0</span>;\ntheEdge::theEdge() {}\ntheEdge::theEdge(<span class="kw">const</span> theNode<span class="op">&amp;</span> n0, <span class="kw">const</span> theNode<span class="op">&amp;</span> n1) {\n    _n[<span class="nm">0</span>]=n0; _n[<span class="nm">1</span>]=n1; _num=++edgeIndex;\n}\n<span class="fn">void</span> theEdge::affiche() <span class="kw">const</span> {\n    cout<span class="op">&lt;&lt;</span><span class="st">"Edge number "</span><span class="op">&lt;&lt;</span>_num<span class="op">&lt;&lt;</span><span class="st">", with Node of index "</span>\n       <span class="op">&lt;&lt;</span>_n[<span class="nm">0</span>].getIndex()<span class="op">&lt;&lt;</span><span class="st">" and Node of index "</span><span class="op">&lt;&lt;</span>_n[<span class="nm">1</span>].getIndex()<span class="op">&lt;&lt;</span>endl;\n}`,lang_code:'cpp',ai:false},
-{id:32,num:'#32',lang:'cpp',tp:'cpp4',title:"append et findUnique",tags:['C++','TP4','Difficile'],keywords:['append','findunique','tableau','unique','concatener','new'],enonce:`<strong>[C++TP4-3]</strong> <code>append</code> : concatène deux tableaux. <code>findUnique</code> : éléments uniques en conservant l'ordre.`,correction:`<span class="fn">int</span> append(<span class="fn">int</span><span class="op">*</span> t0, <span class="fn">int</span> m0, <span class="fn">int</span><span class="op">*</span> t1, <span class="fn">int</span> m1, <span class="fn">int</span><span class="op">*&amp;</span> t2) {\n    t2 = <span class="kw">new</span> <span class="fn">int</span>[m0+m1];\n    <span class="kw">for</span>(<span class="fn">int</span> i=<span class="nm">0</span>;i<span class="op">&lt;</span>m0;i++) t2[i]=t0[i];\n    <span class="kw">for</span>(<span class="fn">int</span> i=<span class="nm">0</span>;i<span class="op">&lt;</span>m1;i++) t2[m0+i]=t1[i];\n    <span class="kw">return</span> m0+m1;\n}\n<span class="fn">int</span> findUnique(<span class="fn">int</span><span class="op">*</span> t, <span class="fn">int</span> m, <span class="fn">int</span><span class="op">*&amp;</span> v) {\n    v = <span class="kw">new</span> <span class="fn">int</span>[m]; <span class="fn">int</span> p=<span class="nm">0</span>;\n    <span class="kw">for</span>(<span class="fn">int</span> i=<span class="nm">0</span>;i<span class="op">&lt;</span>m;i++) {\n        <span class="fn">bool</span> f=<span class="kw">false</span>;\n        <span class="kw">for</span>(<span class="fn">int</span> j=<span class="nm">0</span>;j<span class="op">&lt;</span>p;j++) <span class="kw">if</span>(v[j]==t[i]){f=<span class="kw">true</span>;<span class="kw">break</span>;}\n        <span class="kw">if</span>(!f) v[p++]=t[i];\n    }\n    <span class="kw">return</span> p;\n}`,lang_code:'cpp',ai:false}
+{id:30,num:'#30',lang:'cpp',tp:'cpp4',title:"Classe theNode",tags:['C++','TP4','Difficile'],keywords:['thenode','classe','noeud','graphe','index','getindex','affiche'],enonce:`<strong>[C++TP4-1]</strong> Classe <code>theNode</code> avec <code>_index</code> privé, deux constructeurs, <code>affiche()</code> et <code>getIndex()</code> const.`,correction:`<span class="kw">class</span> theNode {\n<span class="kw">private</span>: <span class="fn">int</span> _index;\n<span class="kw">public</span>:\n    theNode(); theNode(<span class="fn">int</span> idx);\n    <span class="fn">void</span> affiche() <span class="kw">const</span>;\n    <span class="fn">int</span>  getIndex() <span class="kw">const</span>;\n};\n<span class="cm">// theNode.cpp</span>\ntheNode::theNode() {}\ntheNode::theNode(<span class="fn">int</span> idx) : _index(idx) {}\n<span class="fn">void</span> theNode::affiche() <span class="kw">const</span> {\n    cout <span class="op">&lt;&lt;</span> <span class="st">"Node of index "</span> <span class="op">&lt;&lt;</span> _index <span class="op">&lt;&lt;</span> endl;\n}\n<span class="fn">int</span> theNode::getIndex() <span class="kw">const</span> { <span class="kw">return</span> _index; }`,lang_code:'cpp',ai:false},
+{id:31,num:'#31',lang:'cpp',tp:'cpp4',title:"Classe theEdge",tags:['C++','TP4','Difficile'],keywords:['theedge','arete','graphe','edgeindex','statique','static'],enonce:`<strong>[C++TP4-2]</strong> Classe <code>theEdge</code> avec <code>_n[2]</code>, attribut statique <code>edgeIndex</code>, constructeurs et <code>affiche()</code>.`,correction:`<span class="kw">class</span> theEdge {\n<span class="kw">private</span>: <span class="fn">int</span> _num; theNode _n[<span class="nm">2</span>];\n<span class="kw">public</span>:\n    <span class="kw">static</span> <span class="fn">int</span> edgeIndex;\n    theEdge(); theEdge(<span class="kw">const</span> theNode<span class="op">&amp;</span>, <span class="kw">const</span> theNode<span class="op">&amp;</span>);\n    <span class="fn">void</span> affiche() <span class="kw">const</span>;\n};\n<span class="fn">int</span> theEdge::edgeIndex = <span class="nm">0</span>;\ntheEdge::theEdge() {}\ntheEdge::theEdge(<span class="kw">const</span> theNode<span class="op">&amp;</span> n0, <span class="kw">const</span> theNode<span class="op">&amp;</span> n1) {\n    _n[<span class="nm">0</span>]=n0; _n[<span class="nm">1</span>]=n1; _num=++edgeIndex;\n}\n<span class="fn">void</span> theEdge::affiche() <span class="kw">const</span> {\n    cout<span class="op">&lt;&lt;</span><span class="st">"Edge number "</span><span class="op">&lt;&lt;</span>_num<span class="op">&lt;&lt;</span><span class="st">", with Node of index "</span>\n       <span class="op">&lt;&lt;</span>_n[<span class="nm">0</span>].getIndex()<span class="op">&lt;&lt;</span><span class="st">" and Node of index "</span><span class="op">&lt;&lt;</span>_n[<span class="nm">1</span>].getIndex()<span class="op">&lt;&lt;</span>endl;\n}`,lang_code:'cpp',ai:false},
+{id:32,num:'#32',lang:'cpp',tp:'cpp4',title:"append et findUnique",tags:['C++','TP4','Difficile'],keywords:['append','findunique','tableau','unique','concatener','new'],enonce:`<strong>[C++TP4-3]</strong> <code>append</code> : concatène deux tableaux. <code>findUnique</code> : éléments uniques en conservant l'ordre.`,correction:`<span class="fn">int</span> append(<span class="fn">int</span><span class="op">*</span> t0, <span class="fn">int</span> m0, <span class="fn">int</span><span class="op">*</span> t1, <span class="fn">int</span> m1, <span class="fn">int</span><span class="op">*&amp;</span> t2) {\n    t2 = <span class="kw">new</span> <span class="fn">int</span>[m0+m1];\n    <span class="kw">for</span>(<span class="fn">int</span> i=<span class="nm">0</span>;i<span class="op">&lt;</span>m0;i++) t2[i]=t0[i];\n    <span class="kw">for</span>(<span class="fn">int</span> i=<span class="nm">0</span>;i<span class="op">&lt;</span>m1;i++) t2[m0+i]=t1[i];\n    <span class="kw">return</span> m0+m1;\n}\n<span class="fn">int</span> findUnique(<span class="fn">int</span><span class="op">*</span> t, <span class="fn">int</span> m, <span class="fn">int</span><span class="op">*&amp;</span> v) {\n    v = <span class="kw">new</span> <span class="fn">int</span>[m]; <span class="fn">int</span> p=<span class="nm">0</span>;\n    <span class="kw">for</span>(<span class="fn">int</span> i=<span class="nm">0</span>;i<span class="op">&lt;</span>m;i++) {\n        <span class="fn">bool</span> f=<span class="kw">false</span>;\n        <span class="kw">for</span>(<span class="fn">int</span> j=<span class="nm">0</span>;j<span class="op">&lt;</span>p;j++) <span class="kw">if</span>(v[j]==t[i]){f=<span class="kw">true</span>;<span class="kw">break</span>;}\n        <span class="kw">if</span>(!f) v[p++]=t[i];\n    }\n    <span class="kw">return</span> p;\n}`,lang_code:'cpp',ai:false},
+
+// ===== TP5 — Classe MyVector =====
+{id:33,num:'#33',lang:'cpp',tp:'cpp5',title:"MyVector — Attributs et constructeurs",tags:['C++','TP5','Difficile'],keywords:['myvector','vecteur','constructeur','pointeur','allocation','new','_n','_v'],
+enonce:`<strong>[C++TP5-2.1/2.2/2.3]</strong> Implémenter la classe <code>MyVector</code> modélisant un vecteur de ℝⁿ.<br>
+• Attributs privés : <code>_n</code> (unsigned int) et <code>_v</code> (double*)<br>
+• Constructeur 1 : prend un <code>unsigned int n</code>, alloue <code>_v</code> et initialise à 0<br>
+• Constructeur 2 : prend <code>unsigned int n</code> et <code>double* data</code>, copie les valeurs (sans aliasing)<br>
+• Constructeur de copie : copie profonde de <code>_v</code><br>
+• Tester les trois dans <code>main.cpp</code><br>
+Compiler : <code>g++ main.cpp MyVector.cpp -o MyVector</code>`,
+multifile:true,
+files:[
+{label:'MyVector.hh',lang_code:'cpp',code:`<span class="kw">#pragma once</span>\n<span class="kw">#include</span> <span class="st">&lt;ostream&gt;</span>\n\n<span class="kw">class</span> MyVector {\n<span class="kw">private</span>:\n    <span class="fn">unsigned int</span> _n;\n    <span class="fn">double</span><span class="op">*</span> _v;\n<span class="kw">public</span>:\n    MyVector(<span class="fn">unsigned int</span> n);\n    MyVector(<span class="fn">unsigned int</span> n, <span class="fn">double</span><span class="op">*</span> data);\n    MyVector(<span class="kw">const</span> MyVector<span class="op">&amp;</span> other); <span class="cm">// Constructeur de copie</span>\n    <span class="op">~</span>MyVector();\n    <span class="cm">// ... (suite des déclarations)</span>\n};`},
+{label:'MyVector.cpp',lang_code:'cpp',code:`<span class="kw">#include</span> <span class="st">"MyVector.hh"</span>\n\n<span class="cm">// Constructeur 1 : n éléments initialisés à 0</span>\nMyVector::MyVector(<span class="fn">unsigned int</span> n) : _n(n), _v(<span class="kw">new</span> <span class="fn">double</span>[n]()) {}\n\n<span class="cm">// Constructeur 2 : copie depuis un tableau externe</span>\nMyVector::MyVector(<span class="fn">unsigned int</span> n, <span class="fn">double</span><span class="op">*</span> data) : _n(n), _v(<span class="kw">new</span> <span class="fn">double</span>[n]) {\n    <span class="kw">for</span> (<span class="fn">unsigned int</span> i = <span class="nm">0</span>; i <span class="op">&lt;</span> _n; i++)\n        _v[i] = data[i];\n}\n\n<span class="cm">// Constructeur de copie (copie profonde)</span>\nMyVector::MyVector(<span class="kw">const</span> MyVector<span class="op">&amp;</span> other) : _n(other._n), _v(<span class="kw">new</span> <span class="fn">double</span>[other._n]) {\n    <span class="kw">for</span> (<span class="fn">unsigned int</span> i = <span class="nm">0</span>; i <span class="op">&lt;</span> _n; i++)\n        _v[i] = other._v[i];\n}\n\n<span class="cm">// Destructeur</span>\nMyVector::<span class="op">~</span>MyVector() { <span class="kw">delete</span>[] _v; }`},
+{label:'main.cpp',lang_code:'cpp',code:`<span class="kw">#include</span> <span class="st">&lt;iostream&gt;</span>\n<span class="kw">#include</span> <span class="st">"MyVector.hh"</span>\n<span class="kw">using namespace</span> std;\n\n<span class="fn">int</span> main() {\n    MyVector v1(<span class="nm">3</span>);                          <span class="cm">// [0, 0, 0]</span>\n    <span class="fn">double</span> data[] = {<span class="nm">1.0</span>, <span class="nm">2.0</span>, <span class="nm">3.0</span>};\n    MyVector v2(<span class="nm">3</span>, data);                    <span class="cm">// [1, 2, 3]</span>\n    MyVector v3(v2);                          <span class="cm">// copie de v2</span>\n    <span class="kw">return</span> <span class="nm">0</span>;\n}`}
+],ai:false},
+
+{id:34,num:'#34',lang:'cpp',tp:'cpp5',title:"MyVector — dotprod et opérateur <<",tags:['C++','TP5','Difficile'],keywords:['myvector','dotprod','produit scalaire','affichage','ostream','friend','cout'],
+enonce:`<strong>[C++TP5-2.4/2.5]</strong> Ajouter à <code>MyVector</code> :<br>
+• <code>dotprod(const MyVector&amp;) const</code> : produit scalaire (suppose dimensions égales)<br>
+• <code>operator&lt;&lt;</code> : fonction amie, affiche les éléments sur une ligne séparés par des espaces`,
+multifile:true,
+files:[
+{label:'MyVector.hh (ajouts)',lang_code:'cpp',code:`<span class="cm">// Dans la classe MyVector :</span>\n<span class="fn">double</span> dotprod(<span class="kw">const</span> MyVector<span class="op">&amp;</span> other) <span class="kw">const</span>;\n\n<span class="kw">friend</span> std::ostream<span class="op">&amp;</span> <span class="kw">operator</span><span class="op">&lt;&lt;</span>(std::ostream<span class="op">&amp;</span> os, <span class="kw">const</span> MyVector<span class="op">&amp;</span> v);`},
+{label:'MyVector.cpp (ajouts)',lang_code:'cpp',code:`<span class="fn">double</span> MyVector::dotprod(<span class="kw">const</span> MyVector<span class="op">&amp;</span> other) <span class="kw">const</span> {\n    <span class="fn">double</span> result = <span class="nm">0.0</span>;\n    <span class="kw">for</span> (<span class="fn">unsigned int</span> i = <span class="nm">0</span>; i <span class="op">&lt;</span> _n; i++)\n        result <span class="op">+=</span> _v[i] <span class="op">*</span> other._v[i];\n    <span class="kw">return</span> result;\n}\n\nstd::ostream<span class="op">&amp;</span> <span class="kw">operator</span><span class="op">&lt;&lt;</span>(std::ostream<span class="op">&amp;</span> os, <span class="kw">const</span> MyVector<span class="op">&amp;</span> v) {\n    <span class="kw">for</span> (<span class="fn">unsigned int</span> i = <span class="nm">0</span>; i <span class="op">&lt;</span> v._n; i++)\n        os <span class="op">&lt;&lt;</span> v._v[i] <span class="op">&lt;&lt;</span> <span class="st">" "</span>;\n    <span class="kw">return</span> os;\n}`},
+{label:'main.cpp (test)',lang_code:'cpp',code:`<span class="fn">double</span> a[] = {<span class="nm">1.0</span>, <span class="nm">2.0</span>, <span class="nm">3.0</span>};\nMyVector u(<span class="nm">3</span>, a), v(u);\ncout <span class="op">&lt;&lt;</span> <span class="st">"u = "</span> <span class="op">&lt;&lt;</span> u <span class="op">&lt;&lt;</span> endl;        <span class="cm">// 1 2 3</span>\ncout <span class="op">&lt;&lt;</span> <span class="st">"u.v = "</span> <span class="op">&lt;&lt;</span> u.dotprod(v) <span class="op">&lt;&lt;</span> endl; <span class="cm">// 14</span>`}
+],ai:false},
+
+{id:35,num:'#35',lang:'cpp',tp:'cpp5',title:"MyVector — resize",tags:['C++','TP5','Difficile'],keywords:['myvector','resize','redimensionner','taille','reallocation'],
+enonce:`<strong>[C++TP5-2.6]</strong> Implémenter <code>resize(unsigned int m)</code> :<br>
+• Si m &gt; _n : alloue un nouveau tableau, copie les anciennes valeurs, initialise les nouvelles à 0<br>
+• Si m &lt; _n : tronque (les dernières valeurs sont perdues)<br>
+• Si m == _n : ne fait rien<br>
+Tester sur au moins deux cas : agrandissement et réduction.`,
+multifile:true,
+files:[
+{label:'MyVector.hh (ajout)',lang_code:'cpp',code:`<span class="fn">void</span> resize(<span class="fn">unsigned int</span> m);`},
+{label:'MyVector.cpp',lang_code:'cpp',code:`<span class="fn">void</span> MyVector::resize(<span class="fn">unsigned int</span> m) {\n    <span class="kw">if</span> (m <span class="op">==</span> _n) <span class="kw">return</span>;\n    <span class="fn">double</span><span class="op">*</span> newV = <span class="kw">new</span> <span class="fn">double</span>[m]();\n    <span class="fn">unsigned int</span> minN = (m <span class="op">&lt;</span> _n) ? m : _n;\n    <span class="kw">for</span> (<span class="fn">unsigned int</span> i = <span class="nm">0</span>; i <span class="op">&lt;</span> minN; i++)\n        newV[i] = _v[i];\n    <span class="kw">delete</span>[] _v;\n    _v = newV;\n    _n = m;\n}`},
+{label:'main.cpp (test)',lang_code:'cpp',code:`<span class="fn">double</span> data[] = {<span class="nm">1.0</span>, <span class="nm">2.0</span>, <span class="nm">3.0</span>};\nMyVector v(<span class="nm">3</span>, data);\nv.resize(<span class="nm">5</span>);\ncout <span class="op">&lt;&lt;</span> v <span class="op">&lt;&lt;</span> endl; <span class="cm">// 1 2 3 0 0</span>\nv.resize(<span class="nm">2</span>);\ncout <span class="op">&lt;&lt;</span> v <span class="op">&lt;&lt;</span> endl; <span class="cm">// 1 2</span>`}
+],ai:false},
+
+{id:36,num:'#36',lang:'cpp',tp:'cpp5',title:"MyVector — Opérateurs d'addition",tags:['C++','TP5','Difficile'],keywords:['myvector','addition','operateur','operator+','friend','scalaire','vecteur'],
+enonce:`<strong>[C++TP5-2.7]</strong> Déclarer et définir trois opérateurs d'addition :<br>
+• <code>v + w</code> : somme de deux MyVector (membre const)<br>
+• <code>v + d</code> : ajoute un double à chaque composante (membre const)<br>
+• <code>d + v</code> : idem ordre inverse (fonction amie)<br>
+Tester avec affichage via <code>operator&lt;&lt;</code>.`,
+multifile:true,
+files:[
+{label:'MyVector.hh (ajouts)',lang_code:'cpp',code:`<span class="cm">// Membres :</span>\nMyVector <span class="kw">operator</span><span class="op">+</span>(<span class="kw">const</span> MyVector<span class="op">&amp;</span> other) <span class="kw">const</span>;\nMyVector <span class="kw">operator</span><span class="op">+</span>(<span class="fn">double</span> val) <span class="kw">const</span>;\n\n<span class="cm">// Amie :</span>\n<span class="kw">friend</span> MyVector <span class="kw">operator</span><span class="op">+</span>(<span class="fn">double</span> val, <span class="kw">const</span> MyVector<span class="op">&amp;</span> v);`},
+{label:'MyVector.cpp',lang_code:'cpp',code:`<span class="cm">// v + w</span>\nMyVector MyVector::<span class="kw">operator</span><span class="op">+</span>(<span class="kw">const</span> MyVector<span class="op">&amp;</span> other) <span class="kw">const</span> {\n    MyVector result(_n);\n    <span class="kw">for</span> (<span class="fn">unsigned int</span> i = <span class="nm">0</span>; i <span class="op">&lt;</span> _n; i++)\n        result._v[i] = _v[i] <span class="op">+</span> other._v[i];\n    <span class="kw">return</span> result;\n}\n\n<span class="cm">// v + d</span>\nMyVector MyVector::<span class="kw">operator</span><span class="op">+</span>(<span class="fn">double</span> val) <span class="kw">const</span> {\n    MyVector result(_n);\n    <span class="kw">for</span> (<span class="fn">unsigned int</span> i = <span class="nm">0</span>; i <span class="op">&lt;</span> _n; i++)\n        result._v[i] = _v[i] <span class="op">+</span> val;\n    <span class="kw">return</span> result;\n}\n\n<span class="cm">// d + v</span>\nMyVector <span class="kw">operator</span><span class="op">+</span>(<span class="fn">double</span> val, <span class="kw">const</span> MyVector<span class="op">&amp;</span> v) {\n    <span class="kw">return</span> v <span class="op">+</span> val;\n}`},
+{label:'main.cpp (test)',lang_code:'cpp',code:`<span class="fn">double</span> a[]={<span class="nm">1</span>,<span class="nm">2</span>,<span class="nm">3</span>}, b[]={<span class="nm">4</span>,<span class="nm">5</span>,<span class="nm">6</span>};\nMyVector u(<span class="nm">3</span>,a), w(<span class="nm">3</span>,b);\ncout <span class="op">&lt;&lt;</span> u<span class="op">+</span>w    <span class="op">&lt;&lt;</span> endl; <span class="cm">// 5 7 9</span>\ncout <span class="op">&lt;&lt;</span> u<span class="op">+</span><span class="nm">10.0</span> <span class="op">&lt;&lt;</span> endl; <span class="cm">// 11 12 13</span>\ncout <span class="op">&lt;&lt;</span> <span class="nm">10.0</span><span class="op">+</span>u <span class="op">&lt;&lt;</span> endl; <span class="cm">// 11 12 13</span>`}
+],ai:false},
+
+{id:37,num:'#37',lang:'cpp',tp:'cpp5',title:"MyVector — Multiplication et opérateur []",tags:['C++','TP5','Difficile'],keywords:['myvector','multiplication','operateur','operator*','operator[]','crochet','scalaire'],
+enonce:`<strong>[C++TP5-2.8/2.9]</strong> Ajouter :<br>
+• <code>v * d</code> et <code>d * v</code> : multiplication composante par composante<br>
+• <code>operator[](unsigned int i)</code> : accès et modification du ième élément (retourne <code>double&amp;</code>)`,
+multifile:true,
+files:[
+{label:'MyVector.hh (ajouts)',lang_code:'cpp',code:`MyVector <span class="kw">operator</span><span class="op">*</span>(<span class="fn">double</span> val) <span class="kw">const</span>;\n<span class="fn">double</span><span class="op">&amp;</span> <span class="kw">operator</span>[](<span class="fn">unsigned int</span> i);\n\n<span class="kw">friend</span> MyVector <span class="kw">operator</span><span class="op">*</span>(<span class="fn">double</span> val, <span class="kw">const</span> MyVector<span class="op">&amp;</span> v);`},
+{label:'MyVector.cpp',lang_code:'cpp',code:`<span class="cm">// v * d</span>\nMyVector MyVector::<span class="kw">operator</span><span class="op">*</span>(<span class="fn">double</span> val) <span class="kw">const</span> {\n    MyVector result(_n);\n    <span class="kw">for</span> (<span class="fn">unsigned int</span> i = <span class="nm">0</span>; i <span class="op">&lt;</span> _n; i++)\n        result._v[i] = _v[i] <span class="op">*</span> val;\n    <span class="kw">return</span> result;\n}\n\n<span class="cm">// d * v</span>\nMyVector <span class="kw">operator</span><span class="op">*</span>(<span class="fn">double</span> val, <span class="kw">const</span> MyVector<span class="op">&amp;</span> v) {\n    <span class="kw">return</span> v <span class="op">*</span> val;\n}\n\n<span class="cm">// operator[]</span>\n<span class="fn">double</span><span class="op">&amp;</span> MyVector::<span class="kw">operator</span>[](<span class="fn">unsigned int</span> i) {\n    <span class="kw">return</span> _v[i];\n}`},
+{label:'main.cpp (test)',lang_code:'cpp',code:`<span class="fn">double</span> a[]={<span class="nm">1</span>,<span class="nm">2</span>,<span class="nm">3</span>};\nMyVector u(<span class="nm">3</span>,a);\ncout <span class="op">&lt;&lt;</span> u<span class="op">*</span><span class="nm">2.0</span>   <span class="op">&lt;&lt;</span> endl; <span class="cm">// 2 4 6</span>\ncout <span class="op">&lt;&lt;</span> <span class="nm">3.0</span><span class="op">*</span>u   <span class="op">&lt;&lt;</span> endl; <span class="cm">// 3 6 9</span>\ncout <span class="op">&lt;&lt;</span> u[<span class="nm">1</span>]    <span class="op">&lt;&lt;</span> endl; <span class="cm">// 2</span>\nu[<span class="nm">1</span>] = <span class="nm">99.0</span>;\ncout <span class="op">&lt;&lt;</span> u        <span class="op">&lt;&lt;</span> endl; <span class="cm">// 1 99 3</span>`}
+],ai:false},
+
+{id:38,num:'#38',lang:'cpp',tp:'cpp5',title:"MyVector — Opérateur d'égalité (=)",tags:['C++','TP5','Difficile'],keywords:['myvector','egalite','affectation','operator=','copie profonde','memoire'],
+enonce:`<strong>[C++TP5-2.10 Facultatif]</strong> Implémenter l'opérateur d'affectation <code>operator=</code> :<br>
+• Gère l'auto-affectation (<code>if (this == &amp;other)</code>)<br>
+• Libère l'ancienne mémoire<br>
+• Alloue et copie le contenu de <code>other</code><br>
+• Retourne <code>*this</code>`,
+multifile:true,
+files:[
+{label:'MyVector.hh (ajout)',lang_code:'cpp',code:`MyVector<span class="op">&amp;</span> <span class="kw">operator</span><span class="op">=</span>(<span class="kw">const</span> MyVector<span class="op">&amp;</span> other);`},
+{label:'MyVector.cpp',lang_code:'cpp',code:`MyVector<span class="op">&amp;</span> MyVector::<span class="kw">operator</span><span class="op">=</span>(<span class="kw">const</span> MyVector<span class="op">&amp;</span> other) {\n    <span class="kw">if</span> (<span class="kw">this</span> <span class="op">==</span> <span class="op">&amp;</span>other) <span class="kw">return</span> <span class="op">*</span><span class="kw">this</span>; <span class="cm">// auto-affectation</span>\n    <span class="kw">delete</span>[] _v;                        <span class="cm">// libère l'ancienne mémoire</span>\n    _n = other._n;\n    _v = <span class="kw">new</span> <span class="fn">double</span>[_n];\n    <span class="kw">for</span> (<span class="fn">unsigned int</span> i = <span class="nm">0</span>; i <span class="op">&lt;</span> _n; i++)\n        _v[i] = other._v[i];\n    <span class="kw">return</span> <span class="op">*</span><span class="kw">this</span>;\n}`},
+{label:'MyVector.hh — Complet (récap)',lang_code:'cpp',code:`<span class="kw">#pragma once</span>\n<span class="kw">#include</span> <span class="st">&lt;ostream&gt;</span>\n\n<span class="kw">class</span> MyVector {\n<span class="kw">private</span>:\n    <span class="fn">unsigned int</span> _n;\n    <span class="fn">double</span><span class="op">*</span> _v;\n<span class="kw">public</span>:\n    MyVector(<span class="fn">unsigned int</span> n);\n    MyVector(<span class="fn">unsigned int</span> n, <span class="fn">double</span><span class="op">*</span> data);\n    MyVector(<span class="kw">const</span> MyVector<span class="op">&amp;</span> other);\n    <span class="op">~</span>MyVector();\n\n    <span class="fn">double</span> dotprod(<span class="kw">const</span> MyVector<span class="op">&amp;</span> other) <span class="kw">const</span>;\n    <span class="fn">void</span> resize(<span class="fn">unsigned int</span> m);\n    <span class="fn">double</span><span class="op">&amp;</span> <span class="kw">operator</span>[](<span class="fn">unsigned int</span> i);\n\n    MyVector <span class="kw">operator</span><span class="op">+</span>(<span class="kw">const</span> MyVector<span class="op">&amp;</span> other) <span class="kw">const</span>;\n    MyVector <span class="kw">operator</span><span class="op">+</span>(<span class="fn">double</span> val) <span class="kw">const</span>;\n    MyVector <span class="kw">operator</span><span class="op">*</span>(<span class="fn">double</span> val) <span class="kw">const</span>;\n    MyVector<span class="op">&amp;</span> <span class="kw">operator</span><span class="op">=</span>(<span class="kw">const</span> MyVector<span class="op">&amp;</span> other);\n\n    <span class="kw">friend</span> std::ostream<span class="op">&amp;</span> <span class="kw">operator</span><span class="op">&lt;&lt;</span>(std::ostream<span class="op">&amp;</span> os, <span class="kw">const</span> MyVector<span class="op">&amp;</span> v);\n    <span class="kw">friend</span> MyVector <span class="kw">operator</span><span class="op">+</span>(<span class="fn">double</span> val, <span class="kw">const</span> MyVector<span class="op">&amp;</span> v);\n    <span class="kw">friend</span> MyVector <span class="kw">operator</span><span class="op">*</span>(<span class="fn">double</span> val, <span class="kw">const</span> MyVector<span class="op">&amp;</span> v);\n};`}
+],ai:false},
+
+{id:39,num:'#39',lang:'cpp',tp:'cpp5',title:"MyVector — main.cpp complet (tests)",tags:['C++','TP5','Difficile'],keywords:['myvector','main','test','compilation','operateurs','cout'],
+enonce:`<strong>[C++TP5-2.11]</strong> Fichier <code>main.cpp</code> complet testant tous les opérateurs de <code>MyVector</code> : constructeurs, dotprod, resize, additions, multiplications, et opérateur [].`,
+multifile:false,
+correction:`<span class="kw">#include</span> <span class="st">&lt;iostream&gt;</span>\n<span class="kw">#include</span> <span class="st">"MyVector.hh"</span>\n<span class="kw">using namespace</span> std;\n\n<span class="fn">int</span> main() {\n    <span class="cm">// Constructeurs</span>\n    MyVector v1(<span class="nm">3</span>);\n    cout <span class="op">&lt;&lt;</span> <span class="st">"v1 (zeros): "</span> <span class="op">&lt;&lt;</span> v1 <span class="op">&lt;&lt;</span> endl;    <span class="cm">// 0 0 0</span>\n\n    <span class="fn">double</span> data[] = {<span class="nm">1.0</span>, <span class="nm">2.0</span>, <span class="nm">3.0</span>};\n    MyVector v2(<span class="nm">3</span>, data);\n    cout <span class="op">&lt;&lt;</span> <span class="st">"v2: "</span> <span class="op">&lt;&lt;</span> v2 <span class="op">&lt;&lt;</span> endl;           <span class="cm">// 1 2 3</span>\n\n    MyVector v3(v2);\n    cout <span class="op">&lt;&lt;</span> <span class="st">"v3 (copie): "</span> <span class="op">&lt;&lt;</span> v3 <span class="op">&lt;&lt;</span> endl;    <span class="cm">// 1 2 3</span>\n\n    <span class="cm">// dotprod</span>\n    cout <span class="op">&lt;&lt;</span> <span class="st">"v2·v3 = "</span> <span class="op">&lt;&lt;</span> v2.dotprod(v3) <span class="op">&lt;&lt;</span> endl; <span class="cm">// 14</span>\n\n    <span class="cm">// resize</span>\n    v2.resize(<span class="nm">5</span>);\n    cout <span class="op">&lt;&lt;</span> <span class="st">"v2 resize(5): "</span> <span class="op">&lt;&lt;</span> v2 <span class="op">&lt;&lt;</span> endl; <span class="cm">// 1 2 3 0 0</span>\n    v2.resize(<span class="nm">2</span>);\n    cout <span class="op">&lt;&lt;</span> <span class="st">"v2 resize(2): "</span> <span class="op">&lt;&lt;</span> v2 <span class="op">&lt;&lt;</span> endl; <span class="cm">// 1 2</span>\n\n    <span class="cm">// Additions</span>\n    <span class="fn">double</span> a[]={<span class="nm">1</span>,<span class="nm">2</span>,<span class="nm">3</span>}, b[]={<span class="nm">4</span>,<span class="nm">5</span>,<span class="nm">6</span>};\n    MyVector u(<span class="nm">3</span>,a), w(<span class="nm">3</span>,b);\n    cout <span class="op">&lt;&lt;</span> <span class="st">"u+w = "</span>    <span class="op">&lt;&lt;</span> (u<span class="op">+</span>w)    <span class="op">&lt;&lt;</span> endl; <span class="cm">// 5 7 9</span>\n    cout <span class="op">&lt;&lt;</span> <span class="st">"u+10 = "</span>   <span class="op">&lt;&lt;</span> (u<span class="op">+</span><span class="nm">10.0</span>) <span class="op">&lt;&lt;</span> endl; <span class="cm">// 11 12 13</span>\n    cout <span class="op">&lt;&lt;</span> <span class="st">"10+u = "</span>   <span class="op">&lt;&lt;</span> (<span class="nm">10.0</span><span class="op">+</span>u) <span class="op">&lt;&lt;</span> endl; <span class="cm">// 11 12 13</span>\n\n    <span class="cm">// Multiplications</span>\n    cout <span class="op">&lt;&lt;</span> <span class="st">"u*2 = "</span>    <span class="op">&lt;&lt;</span> (u<span class="op">*</span><span class="nm">2.0</span>)  <span class="op">&lt;&lt;</span> endl; <span class="cm">// 2 4 6</span>\n    cout <span class="op">&lt;&lt;</span> <span class="st">"3*u = "</span>    <span class="op">&lt;&lt;</span> (<span class="nm">3.0</span><span class="op">*</span>u)  <span class="op">&lt;&lt;</span> endl; <span class="cm">// 3 6 9</span>\n\n    <span class="cm">// Opérateur []</span>\n    cout <span class="op">&lt;&lt;</span> <span class="st">"u[1] = "</span>   <span class="op">&lt;&lt;</span> u[<span class="nm">1</span>]    <span class="op">&lt;&lt;</span> endl; <span class="cm">// 2</span>\n    u[<span class="nm">1</span>] = <span class="nm">99.0</span>;\n    cout <span class="op">&lt;&lt;</span> <span class="st">"u apres u[1]=99: "</span> <span class="op">&lt;&lt;</span> u <span class="op">&lt;&lt;</span> endl; <span class="cm">// 1 99 3</span>\n\n    <span class="kw">return</span> <span class="nm">0</span>;\n}`,lang_code:'cpp',ai:false}
 ];
+
+const sujets={
+  tp1:{titre:'TP1 Python — Bases',sous:'simon.girel@univ-cotedazur.fr · gilles.scarella@univ-cotedazur.fr',contenu:`
+<h3>1. Conversion de l'heure</h3>
+<p>Dans <code>conv_heure.py</code>, créer une fonction <code>conv_heure(t)</code> prenant un nombre de secondes et retournant une chaîne au format <em>jours, heures, minutes, secondes</em>.</p>
+<p>Exemple : <code>conv_heure(3601)</code> → <code>'3601 secondes correspondent à 0 jours, 1 heures, 0 minutes, 1 secondes'</code></p>
+<hr class="sujet-sep">
+<h3>2. Chaînes de caractères — Verlaine</h3>
+<p>Dans <code>exo2.py</code>, à partir du texte "Les sanglots longs des violons de l'automne..." :</p>
+<ul><li>Afficher le nombre de caractères</li><li>Découper avec <code>split()</code> et afficher la taille</li><li>Remplacer "jours"→"temps" et "automne"→"hiver"</li></ul>
+<hr class="sujet-sep">
+<h3>3. Dictionnaire — Départements</h3>
+<p>Dans <code>dict_depart.py</code>, créer un dictionnaire <code>depart</code> (nom→numéro) contenant Var-83, Isere-38, Drome-26, Vaucluse-84, Finistere-29, Cher-18.</p>
+<ul><li>Valeurs strictement &lt; 30 (triées)</li><li>Clés avec ≥ 6 lettres triées par valeur</li></ul>
+<hr class="sujet-sep">
+<h3>4. Discrétisation</h3>
+<p>Dans <code>discretisation.py</code>, définir avec <code>range</code> :</p>
+<ul><li><code>a</code> : [1, 20[ pas 1</li><li><code>b</code> : [1, 30] pas 1</li><li><code>c</code> : [0, 100] pas 4</li><li><code>d</code> : [30, …, 0] inversé</li><li>[Facultatif] <code>e</code> : numpy.arange [0,5] pas 0.2 ; <code>f</code> : linspace [1,6] 50 pts</li></ul>
+<hr class="sujet-sep">
+<h3>5. Suite de Fibonacci</h3>
+<p>Dans <code>fibo.py</code>, créer <code>fibonacci1(n)</code> retournant la suite jusqu'à l'indice n. Gérer n&lt;0, n=0, n=1.</p>
+<hr class="sujet-sep">
+<h3>6. Racines d'un polynôme de degré 2</h3>
+<p>Dans <code>solve2.py</code>, créer <code>solve2(coeffs)</code> retournant les racines réelles de ax²+bx+c. Gérer Δ&gt;0, Δ=0, Δ&lt;0.</p>
+<hr class="sujet-sep">
+<h3>7. Dichotomie</h3>
+<p>Dans <code>dicho.py</code>, implémenter <code>dicho(f, a, b, kmax=50)</code> avec eps=1e-8.</p>
+<p>Tester sur : <span class="math">f1(x) = √(1+x³)−7</span> sur [-1, 50] et <span class="math">f2(x) = x²−6x·sin(2x)+2</span> sur [-20, -4].</p>
+<hr class="sujet-sep">
+<h3>8. Géométrie [Facultatif]</h3>
+<p>Fonction <code>Proj3D(u, v, w)</code> retournant la matrice de projection sur un plan P parallèlement à une droite D dans ℝ³.</p>`},
+
+  tp2:{titre:'TP2 Python — NumPy & Matplotlib',sous:'simon.girel@univ-cotedazur.fr · gilles.scarella@univ-cotedazur.fr',contenu:`
+<h3>1. Loi de Poisson</h3>
+<p>Dans <code>exo1.py</code>, définir une fonction à deux arguments λ et n retournant un tableau numpy de taille n contenant P(X=k) pour k=0 à n-1.</p>
+<p>Tracer pour λ=11 (rouge, diamant), λ=7 (vert, o), λ=5 (noir, *) avec légende et labels axes.</p>
+<hr class="sujet-sep">
+<h3>2. Jeu de données Iris</h3>
+<p>Charger <code>iris.txt</code>. Pour chacune des 4 quantités (Sepal.Length, Sepal.Width, Petal.Length, Petal.Width) :</p>
+<ul><li>Nuage de points avec ligne moyenne (jaune) et médiane (magenta)</li><li>Histogramme avec 20 bins</li></ul>
+<hr class="sujet-sep">
+<h3>3. Représentation de fonctions mathématiques</h3>
+<p>Représenter u(t) et du/dt avec subplot matplotlib pour 8 couples (τm, τs) différents.</p>
+<p class="math">u(t) = 1/(1−τs/τm) · (exp(−t/τm) − exp(−t/τs))</p>
+<hr class="sujet-sep">
+<h3>4. Droite des moindres carrés</h3>
+<p>Dans <code>lsq_line.py</code>, calculer α et β minimisant ‖y−MV‖² via MᵀMV=Mᵀy pour les données :</p>
+<p>(xi) : 1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50 | (yi) : 4.1, 26.4, 39.9, 56.5, 80.1, 112.2, 120.8, 138.0, 160.4, 167, 200.2</p>
+<hr class="sujet-sep">
+<h3>5. Matrice de covariance</h3>
+<p>Dans <code>covariance.py</code>, définir <code>covariance(M)</code> retournant la matrice de covariance. Charger <code>Matrice.txt</code> (M5000,2), calculer valeurs/vecteurs propres, afficher nuage de points + vecteurs propres.</p>
+<hr class="sujet-sep">
+<h3>6. Maillage triangulaire [Facultatif]</h3>
+<p>Fonctions <code>coord</code>, <code>connec</code>, <code>plot_triangle</code>, <code>plotmesh</code> pour mailler un rectangle en triangles.</p>`},
+
+  tp3:{titre:'TP3 Python — Classes & POO',sous:'simon.girel@univ-cotedazur.fr · gilles.scarella@univ-cotedazur.fr',contenu:`
+<h3>1. Matrices NumPy — matM et matN</h3>
+<p>Dans <code>exo1.py</code>, définir <code>matM(k)</code> retournant la matrice 4×4 paramétrée par k, et <code>matN(n, k0, j0)</code> retournant une matrice bloc-diagonale de taille n×n avec :</p>
+<ul><li>Blocs <code>matM(k/4)</code> sur la diagonale pour k=0 à n-1 pas 4</li><li>Valeur 8 sur la ligne k0 (après le dernier bloc)</li><li>Valeur 6 sur la colonne j0 (après le dernier bloc)</li></ul>
+<p>Tester pour n=8,k0=1,j0=2 puis n=12,k0=7,j0=4 et n=100,k0=12,j0=32. Afficher aussi la trace.</p>
+<hr class="sujet-sep">
+<h3>2. Classe Droite2d</h3>
+<p>Dans <code>ClasseDroite2d.py</code>, définir la classe <code>Droite2d</code> avec attributs <code>v</code> (pente+ordonnée), <code>color</code>, <code>style</code>.</p>
+<ul><li>Constructeur avec valeurs par défaut : v=[0,0], color="b", style="-"</li><li><code>__str__</code> : affiche "Droite d'équation y = a*x + b"</li><li><code>__eq__</code> : égalité au sens de la norme infinie &lt; 1e-8</li><li><code>plot()</code> : affichage matplotlib sur [-10, 10]</li><li><code>intersect(other)</code> : coordonnées du point d'intersection (tableau vide si parallèles)</li></ul>
+<p>Dans <code>ExoDroite2d.py</code> : importer, tester d0 (défaut), d1 (v=[1,1], pointillés, noir), d2 (v=[2,-1], tirets, vert).</p>
+<hr class="sujet-sep">
+<h3>3. Classe PWF — Fonctions P0 par morceaux</h3>
+<p>Dans <code>pwf.py</code>, définir la classe <code>PWF(y, v)</code> avec attributs <code>y</code>, <code>v</code>, <code>taille</code>.</p>
+<ul><li><code>__str__</code> : taille, intervalle de définition, min et max de v</li><li><code>__mul__ / __rmul__</code> : multiplication par un scalaire</li><li><code>integrate()</code> : intégrale = Σ vᵢ(yᵢ₊₁−yᵢ)</li><li>[Facultatif] <code>plot(ls, color)</code> avec fonctions auxiliaires <code>double_y</code> et <code>double_v</code></li><li>[Facultatif] <code>__add__</code> : addition de deux PWF</li></ul>`},
+
+  tp4:{titre:'TP4 Python — EDO, Probabilités, Intégration',sous:'simon.girel@univ-cotedazur.fr · gilles.scarella@univ-cotedazur.fr',contenu:`
+<h3>1. EDO ordre 1</h3>
+<p>Dans <code>edo.py</code>, résoudre avec <code>scipy.integrate.odeint</code> :</p>
+<p class="math">2·du/dt − 3u = (t+4)·e^(3t/2), u(0) = −5 sur [0, 3] (n=21 points)</p>
+<p>Solution exacte : u(t) = (t²/4 + 2t − 5)·e^(3t/2). Afficher exacte (trait) + numérique (points).</p>
+<hr class="sujet-sep">
+<h3>2. EDO ordre 2</h3>
+<p>Dans le même fichier, résoudre par réduction d'ordre (Y=[y, y']) :</p>
+<p class="math">d²y/dt² − 4y = 0, y(0)=2, y'(0)=−1 sur [0, 2] (n=21 points)</p>
+<p>Solution exacte : y(t) = (3/4)e^(2t) + (5/4)e^(−2t).</p>
+<hr class="sujet-sep">
+<h3>3. Probabilités — Théorème Central Limite</h3>
+<p>Dans <code>tcl.py</code>, simuler S₄₀ = somme de 40 variables Poisson(μ=8), avec M=2000 réalisations.</p>
+<ul><li>Tableau TX de taille (n+1) × M, dernière ligne = Sn</li><li>Histogramme normalisé (50 bins) + densité N(nμ, σ²n) en rouge</li><li>Même question avec loi binomiale B(30, 0.25)</li></ul>
+<hr class="sujet-sep">
+<h3>4. Intégration — Méthode des trapèzes</h3>
+<p>Dans <code>trapz.py</code>, implémenter <code>my_trapz(f, a, b, n)</code>.</p>
+<p>Tester sur f(x) = e^(−x²)sin(3x) − 4x·cos(x²) + 2 sur [0, 10], comparer avec <code>scipy.integrate.quad</code>.</p>
+<p>Fonction <code>plot_erreur(th, t1, t2)</code> : erreur |t1−t2| en loglog, afficher la pente. Étudier l'ordre de convergence pour n=51, 101, 1001, 5001, 10001, 50001, 100001.</p>
+<hr class="sujet-sep">
+<h3>5. EDO ordre 4 [Facultatif]</h3>
+<p class="math">d⁴y/dt⁴ − 2·d²y/dt² + dy/dt + y = 0 sur [0, 4]</p>
+<p>Conditions initiales : y(0)=1, y'(0)=0, y''(0)=1, y'''(0)=−1.</p>`},
+
+  cpp1:{titre:'TP1 C++ — Bases',sous:'gilles.scarella@univ-cotedazur.fr · jonathan.stephano@univ-cotedazur.fr',contenu:`
+<h3>1. Superficie d'un terrain</h3>
+<p>Dans <code>terrain.cpp</code>, demander largeur et longueur avec <code>cin</code>, afficher superficie et périmètre avec <code>cout</code>. Valeurs réelles.</p>
+<hr class="sujet-sep">
+<h3>2. Moyenne (I)</h3>
+<p>Dans <code>moyenne1.cpp</code>, lire 5 valeurs au clavier, calculer et afficher la moyenne. Type réel (pas entier). Pas de tableau.</p>
+<hr class="sujet-sep">
+<h3>3. Moyenne (II)</h3>
+<p>Dans <code>moyenne2.cpp</code>, demander d'abord n, puis lire n valeurs, calculer et afficher la moyenne. Pas de tableau.</p>
+<hr class="sujet-sep">
+<h3>4. Racines d'un polynôme</h3>
+<p>Dans <code>poly.cpp</code>, lire a, b, c et afficher les racines réelles de ax²+bx+c. Inclure <code>&lt;cmath&gt;</code> pour <code>sqrt</code>.</p>
+<hr class="sujet-sep">
+<h3>5. Fonction puissance</h3>
+<p>Dans <code>myPow.cpp</code>, écrire <code>myPow(double x, int m)</code> gérant tous les cas (exposant positif, négatif, nul). Comparer avec <code>pow</code>.</p>
+<hr class="sujet-sep">
+<h3>6. Factorielle (I) — itérative</h3>
+<p>Dans <code>myFact.cpp</code>, écrire <code>myFactIt(n)</code> avec une boucle.</p>
+<hr class="sujet-sep">
+<h3>7. Factorielle (II) — récursive</h3>
+<p>Dans le même fichier, écrire <code>myFactRec(n)</code> récursive. Tester les deux.</p>
+<hr class="sujet-sep">
+<h3>8. Racine carrée — Méthode de Héron</h3>
+<p>Dans <code>mySqrt.cpp</code>, implémenter <code>mySqrt(double x)</code> par la méthode de Héron sans utiliser <code>sqrt</code>. Utiliser <code>setprecision</code> pour l'affichage.</p>
+<hr class="sujet-sep">
+<h3>9. estPremier [Facultatif]</h3>
+<p>Dans <code>estPremier.cpp</code>, <code>estPremier(unsigned int n)</code> retourne un booléen. Tester sur 71, 2427, 87109.</p>
+<hr class="sujet-sep">
+<h3>10. Somme alternée [Facultatif]</h3>
+<p>Dans <code>sommeAlt.cpp</code>, lire 6 entiers, calculer S = Σ(v₂ᵢ − v₂ᵢ₊₁). Arrêter si deux valeurs consécutives identiques.</p>`},
+
+  cpp2:{titre:'TP2 C++ — Surcharge & Tableaux',sous:'gilles.scarella@univ-cotedazur.fr · jonathan.stephano@univ-cotedazur.fr',contenu:`
+<h3>1. Surcharge de fonctions — myMax</h3>
+<p>Dans <code>myMax.cpp</code>, trois versions de <code>myMax</code> :</p>
+<ul><li>3 <code>int</code> → retourne le plus grand <code>int</code></li><li>3 <code>double</code> → retourne le plus grand <code>double</code></li><li>1 tableau de 3 <code>int</code> → retourne le plus grand <code>int</code></li></ul>
+<p>Tester les trois, puis tester avec un tableau de 3 <code>double</code>. Observer ce qui se passe et proposer un correctif.</p>
+<hr class="sujet-sep">
+<h3>2. Tableaux de double</h3>
+<p>Dans <code>exo2.cpp</code>, avec pointeurs sur double :</p>
+<ul>
+<li><code>moyenne(double* t, int n)</code> : moyenne du tableau</li>
+<li><code>variance(double* t, int n)</code> : variance discrète = (1/n)·Σ(tᵢ−t̄)²</li>
+<li><code>ecart(double* t, int n)</code> : écart-type</li>
+<li><code>printStats(double* t, int n)</code> : affiche les 10 premiers éléments si n&gt;10, sinon tous, puis moyenne/variance/écart-type</li>
+<li><code>get_kbd_number()</code> : saisie clavier d'un double</li>
+<li><code>get_rand_number()</code> : tirage uniforme U(0,1) — inclure <code>cstdlib</code> et <code>ctime</code>, utiliser <code>srand(time(NULL))</code></li>
+<li><code>array_kbd(int n)</code> : tableau de n doubles saisis au clavier — utiliser <code>new</code></li>
+<li><code>array_rand(int n)</code> : tableau de n doubles aléatoires — utiliser <code>new</code></li>
+<li><code>array_expo(int n, double mu)</code> : loi exponentielle E(μ) — si X~U(0,1), alors Z=(-1/μ)·log(X)~E(μ)</li>
+</ul>
+<p>[Facultatif] <code>apply</code>, <code>changeValeur</code>, <code>ajouteValeur</code>, <code>ajouteValeurs</code></p>`},
+
+  cpp3:{titre:'TP3 C++ — Structures & Probabilités',sous:'gilles.scarella@univ-cotedazur.fr · jonathan.stephano@univ-cotedazur.fr',contenu:`
+<h3>1. Tableaux de double (reprise TP2)</h3>
+<p>Dans <code>exo2.cpp</code>, mêmes fonctions que le TP2 : <code>moyenne</code>, <code>variance</code>, <code>ecart</code>, <code>printStats</code>, <code>get_rand_number</code>, <code>array_rand</code>, <code>array_expo</code>. Ajouter <code>get_kbd_number</code> et <code>array_kbd</code> avec saisie clavier.</p>
+<hr class="sujet-sep">
+<h3>2. Chaînes de caractères</h3>
+<p>Dans <code>chaines.cpp</code>, saisir une chaîne <code>string s</code> avec <code>cin</code>, puis :</p>
+<ul><li>Afficher la chaîne et son nombre de caractères (<code>.size()</code>)</li><li>Afficher la chaîne doublée (<code>s+s</code>)</li><li>Afficher la chaîne suivie d'un entier (<code>to_string</code>)</li></ul>
+<p>[Facultatif] Remplacer les caractères d'indices 2 et 4 par 'Z' avec <code>s.replace(i,j,N)</code>.</p>
+<hr class="sujet-sep">
+<h3>3. Lois de probabilité — Structure RandV</h3>
+<p>Dans <code>proba.cpp</code>, définir la structure <code>RandV</code> avec attributs <code>num</code> (int), <code>alpha</code> (double), <code>beta</code> (double).</p>
+<p>Table de correspondance : 1→U(0,1), 2→E(α), 3→U(α,β), 4→N(0,1)</p>
+<ul><li><code>affiche(const RandV& r)</code> : affiche le nom de la loi</li><li><code>compute(const RandV& r, int N)</code> : retourne un tableau de N tirages selon la loi — appelle <code>affiche</code> au début</li></ul>
+<p>[Facultatif] <code>array_rand(n, a, b)</code> pour U(a,b), <code>array_normal(n)</code> par méthode de Box-Muller.</p>
+<hr class="sujet-sep">
+<h3>4. Structure Spike — Neurosciences</h3>
+<p>Dans <code>spike.cpp</code>, structure <code>Spike</code> avec <code>t</code> (double, temps) et <code>n</code> (int, indice neurone).</p>
+<ul><li><code>affiche(const Spike& s)</code> : affiche "Spike au temps t, neurone n"</li><li><code>nNeur(Spike* t, int ns)</code> : nombre de neurones = max(indice)+1</li><li><code>countTotal(double a, double b, Spike* t, int ns)</code> : nb de spikes dans [a,b[</li><li><code>count(double a, double b, Spike* t, int ns)</code> : nb de spikes par neurone dans [a,b[ — utiliser <code>new</code></li></ul>
+<p>[Facultatif] <code>readFile</code> pour lire <code>DataSpike.txt</code>, trouver le neurone min/max sur [0,100[.</p>
+<hr class="sujet-sep">
+<h3>5. Newton-Raphson [Facultatif]</h3>
+<p>Dans <code>newton.cpp</code>, implémenter l'algorithme de Newton-Raphson avec pointeurs de fonctions.</p>
+<p>Tester sur f(x) = x⁴ − 6x³ + 2x² + 13, x₀=1, nmax=100.</p>`},
+
+  cpp4:{titre:'TP4 C++ — Classes theNode & theEdge',sous:'gilles.scarella@univ-cotedazur.fr · jonathan.stephano@univ-cotedazur.fr',contenu:`
+<h3>Compilation</h3>
+<p><code>g++ main.cpp theNode.cpp theEdge.cpp -o main</code></p>
+<hr class="sujet-sep">
+<h3>1. Classe theNode</h3>
+<p>Attribut privé : <code>_index</code> (int). Fichiers : <code>theNode.hh</code> et <code>theNode.cpp</code>.</p>
+<ul>
+<li>Constructeur par défaut (ne fait rien)</li>
+<li>Constructeur avec un <code>int</code> → définit <code>_index</code></li>
+<li><code>affiche() const</code> → affiche "Node of index X"</li>
+<li><code>getIndex() const</code> → getter pour <code>_index</code></li>
+</ul>
+<p>Tester dans <code>main.cpp</code> : créer un theNode, l'afficher, appeler <code>getIndex()</code>.</p>
+<hr class="sujet-sep">
+<h3>2. Classe theEdge</h3>
+<p>Attributs privés : <code>_num</code> (int), <code>_n[2]</code> (tableau de theNode). Attribut public statique : <code>edgeIndex</code>.</p>
+<ul>
+<li>Constructeur par défaut (ne fait rien)</li>
+<li>Constructeur avec deux <code>const theNode&</code> → définit <code>_n</code>, incrémente <code>edgeIndex</code> pour <code>_num</code></li>
+<li><code>affiche() const</code> → affiche "Edge number X, with Node of index A and Node of index B"</li>
+</ul>
+<hr class="sujet-sep">
+<h3>3. Fonctions auxiliaires</h3>
+<ul>
+<li><code>append(int* t0, int m0, int* t1, int m1, int*& t2)</code> : concatène t0 et t1 dans t2 — utiliser <code>new</code> — retourne taille de t2</li>
+<li><code>findUnique(int* t, int m, int*& v)</code> : éléments uniques de t dans v en conservant l'ordre — utiliser <code>new</code> — retourne p (nb d'éléments uniques)</li>
+</ul>
+<p>Tester avec t0=(1,6,2,3) et t1=(2,1,4) : <code>append</code> puis <code>findUnique</code> sur le résultat.</p>`},
+
+  cpp5:{titre:'TP5 C++ — Classe MyVector',sous:'gilles.scarella@univ-cotedazur.fr · jonathan.stephano@univ-cotedazur.fr',contenu:`
+<h3>Compilation</h3>
+<p><code>g++ main.cpp MyVector.cpp -o MyVector</code> puis <code>./MyVector</code></p>
+<p>Déclarations dans <code>MyVector.hh</code>, définitions dans <code>MyVector.cpp</code>, tests dans <code>main.cpp</code>.</p>
+<hr class="sujet-sep">
+<h3>2.1 Attributs et constructeurs</h3>
+<ul><li>Attributs privés : <code>_n</code> (unsigned int) et <code>_v</code> (double*)</li><li>Constructeur 1 : prend n, alloue _v initialisé à 0</li><li>Constructeur 2 : prend n et double*, copie les valeurs (pas d'aliasing)</li></ul>
+<h3>2.2 Destructeur</h3>
+<p>Déclarer et implémenter le destructeur libérant <code>_v</code>.</p>
+<h3>2.3 Constructeur de copie</h3>
+<p>Copie profonde de <code>_v</code> (attention à l'aliasing).</p>
+<h3>2.4 Fonction membre dotprod</h3>
+<p><code>dotprod(const MyVector&)</code> const : produit scalaire. Dimensions supposées égales.</p>
+<h3>2.5 Opérateur d'affichage</h3>
+<p><code>operator&lt;&lt;</code> : fonction amie, affiche les éléments sur une ligne séparés par des espaces.</p>
+<h3>2.6 Fonction resize</h3>
+<p><code>resize(unsigned int m)</code> : si m&gt;_n, nouvelles valeurs à 0 ; si m&lt;_n, tronque ; si m==_n, ne fait rien.</p>
+<h3>2.7 Opérateurs d'addition</h3>
+<ul><li><code>v + w</code> (membre const)</li><li><code>v + double</code> (membre const)</li><li><code>double + v</code> (fonction amie)</li></ul>
+<h3>2.8 Opérateurs de multiplication</h3>
+<ul><li><code>v * double</code> (membre const)</li><li><code>double * v</code> (fonction amie)</li></ul>
+<h3>2.9 Opérateur []</h3>
+<p>Retourne <code>double&</code> (accès + modification du ième élément).</p>
+<h3>2.10 Opérateur = [Facultatif]</h3>
+<p>Gérer auto-affectation, libérer ancienne mémoire, copier.</p>`}
+};
 
 const categories=[
   {id:'all',label:'Tout',dot:'#6b7280',filter:e=>true},
@@ -187,6 +515,7 @@ const categories=[
   {id:'cpp2',label:'⚡ C++ TP2 – Tableaux',dot:'#0e7490',filter:e=>e.tp==='cpp2'},
   {id:'cpp3',label:'⚡ C++ TP3 – Structures',dot:'#7c3aed',filter:e=>e.tp==='cpp3'},
   {id:'cpp4',label:'⚡ C++ TP4 – Classes',dot:'#b91c1c',filter:e=>e.tp==='cpp4'},
+  {id:'cpp5',label:'⚡ C++ TP5 – MyVector',dot:'#0369a1',filter:e=>e.tp==='cpp5'},
 ];
 
 let activeCat='all',searchTerm='';
@@ -204,10 +533,7 @@ function buildCats(){
 }
 
 function setCat(id){activeCat=id;buildCats();render();}
-
-function filterExos(){
-  searchTerm=document.getElementById('searchInput').value.toLowerCase().trim();render();
-}
+function filterExos(){searchTerm=document.getElementById('searchInput').value.toLowerCase().trim();render();}
 
 function getVis(){
   const cat=categories.find(c=>c.id===activeCat);
@@ -220,6 +546,8 @@ function getVis(){
   });
 }
 
+function togSujet(tp){const c=document.getElementById('sc_'+tp);c.classList.toggle('open');}
+
 function render(){
   const vis=getVis();
   const list=document.getElementById('exoList');
@@ -227,21 +555,51 @@ function render(){
   document.getElementById('resultsCount').textContent=`${vis.length} exercice${vis.length>1?'s':''}`;
   if(!vis.length){list.innerHTML='';noR.classList.add('visible');document.getElementById('noResultsTerm').textContent=searchTerm;return;}
   noR.classList.remove('visible');
-  const tagMap={'Python':'tag-py','C++':'tag-cpp','TP1':'tag-tp1','TP2':'tag-tp2','TP3':'tag-tp3','TP4':'tag-tp4','Facile':'tag-easy','Moyen':'tag-medium','Difficile':'tag-hard'};
-  list.innerHTML=vis.map(e=>{
+  // Insérer carte sujet si on filtre par TP et qu'il existe un sujet
+  const tpSujetOrder=['tp1','tp2','tp3','tp4','cpp5'];
+  const tagMap={'Python':'tag-py','C++':'tag-cpp','TP1':'tag-tp1','TP2':'tag-tp2','TP3':'tag-tp3','TP4':'tag-tp4','TP5':'tag-tp5','Facile':'tag-easy','Moyen':'tag-medium','Difficile':'tag-hard'};
+  // Grouper par TP pour insérer les sujets
+  let html='';
+  let lastTp=null;
+  vis.forEach(e=>{
+    if(e.tp!==lastTp){
+      // Nouvelle section TP : insérer carte sujet si disponible
+      if(sujets[e.tp]){
+        const s=sujets[e.tp];
+        html+=`<div class="sujet-card" id="sc_${e.tp}">
+          <div class="sujet-header" onclick="togSujet('${e.tp}')">
+            <div class="sujet-icon">📄</div>
+            <div class="sujet-info">
+              <div class="sujet-title">${s.titre}</div>
+              <div class="sujet-sub">${s.sous}</div>
+            </div>
+            <div class="sujet-chevron">▼</div>
+          </div>
+          <div class="sujet-body">${s.contenu}</div>
+        </div>`;
+      }
+      lastTp=e.tp;
+    }
     const isR=resolved.has(e.id);
     const nc=e.lang==='py'?'py':'cpp';
     const tags=e.tags.map(t=>`<span class="tag ${tagMap[t]||''}">${t}</span>`).join('');
+    let corrHTML='';
+    if(e.multifile && e.files){
+      corrHTML=`<div class="correction-label">✓ Correction</div><div class="multi-file">`+
+        e.files.map(f=>`<div><div class="file-label">📄 ${f.label}</div><div class="code-block"><span class="code-lang">${f.lang_code}</span><pre>${f.code}</pre></div></div>`).join('')+
+        `</div>`;
+    } else {
+      corrHTML=`<div class="correction-label">✓ Correction</div><div class="code-block"><span class="code-lang">${e.lang_code}</span><pre>${e.correction}</pre></div>`;
+    }
     const aiH=e.ai?`<div class="ai-section">
-     
       <div class="ai-search-wrap">
-        <input class="ai-input" id="ai_${e.id}" type="text" placeholder="Pose une question sur PWF, integrate, double_y..." onkeydown="if(event.key==='Enter')askAI(${e.id})">
-        <button class="ai-btn" id="aib_${e.id}" onclick="askAI(${e.id})">Demander </button>
+        <input class="ai-input" id="ai_${e.id}" type="text" placeholder="Pose une question..." onkeydown="if(event.key==='Enter')askAI(${e.id})">
+        <button class="ai-btn" id="aib_${e.id}" onclick="askAI(${e.id})">Demander</button>
       </div>
       <div class="ai-loading" id="ail_${e.id}">Gemini réfléchit...</div>
       <div class="ai-response" id="air_${e.id}"></div>
     </div>`:'';
-    return `<div class="exo-card" id="c${e.id}" onclick="tog(${e.id},event)">
+    html+=`<div class="exo-card" id="c${e.id}" onclick="tog(${e.id},event)">
       <div class="exo-header">
         <div class="exo-num ${nc}">${e.num}</div>
         <div class="exo-info">
@@ -256,14 +614,12 @@ function render(){
           <button class="correction-btn" onclick="tCorr(${e.id},event)">👁 Voir la correction</button>
           <button class="resolve-btn ${isR?'resolved':''}" onclick="tRes(${e.id},event)">${isR?'✅ Résolu':'○ Marquer résolu'}</button>
         </div>
-        <div class="correction-block" id="k${e.id}">
-          <div class="correction-label">✓ Correction</div>
-          <div class="code-block"><span class="code-lang">${e.lang_code}</span><pre>${e.correction}</pre></div>
-        </div>
+        <div class="correction-block" id="k${e.id}">${corrHTML}</div>
         ${aiH}
       </div>
     </div>`;
-  }).join('');
+  });
+  list.innerHTML=html;
 }
 
 function tog(id,e){if(e&&e.target.closest('button,input'))return;document.getElementById('c'+id).classList.toggle('open');updateStats();}
@@ -288,7 +644,7 @@ async function askAI(id){
   const q=inp.value.trim(); if(!q)return;
   btn.disabled=true; load.classList.add('visible'); resp.classList.remove('visible');
   try{
-    const exo = exos.find(e => e.id === id);
+    const exo=exos.find(e=>e.id===id);
     const res=await fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},
     body:JSON.stringify({question:`Tu es un professeur de programmation. Réponds UNIQUEMENT avec le code, sans aucune explication, sans aucun commentaire dans le code, sans texte avant ou après le code. Juste le code brut. Exercice concerné : "${exo.title}". Question de l'étudiant : ${q}`})});
     const data=await res.json();
